@@ -16,7 +16,7 @@ app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, 'build')))
 
 //Set routes for inner API calls
-app.user('/api/users', require('./routes/api/users'))
+app.use('/api/users', require('./routes/api/users'))
 
 
 app.get('/*', function(req, res) {
