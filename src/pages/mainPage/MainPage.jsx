@@ -1,5 +1,5 @@
 import React from 'react'
-import getRecentlyPlayed from '../../services/appleMusic'
+import getRecentlyPlayed from '../../services/appleMusicService'
 
 function MainPage(props) {
     return(
