@@ -5,6 +5,7 @@ import MainPage from '../MainPage/MainPage'
 import LoginPage from '../LoginPage/LoginPage'
 import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../services/userService'
+import Header from '../../components/Header/Header'
 
 class App extends React.Component {
   constructor(){
@@ -31,10 +32,18 @@ class App extends React.Component {
               (props) => {
               return(
                 userService.getUser() ? 
+                <>
+                <Header 
+                {...props}
+                user={props.user} 
+                handleLogout={this.handleLogout}
+                user={this.state.user}
+                />
                 <MainPage 
                   {...props}  
-                  handleLogout={this.handleLogout}
+                  user={this.state.user}
                 />
+                </>
                 :
                 <>
                   <header className="App-header">

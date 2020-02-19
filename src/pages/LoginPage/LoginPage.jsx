@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../../components/Header/Header'
 import userService from '../../services/userService'
 import {Link} from 'react-router-dom'
 import './LoginPage.css'
@@ -32,7 +31,6 @@ class LoginPage extends React.Component {
     render() {
         return (
             <div>
-                <Header />
                 <form class="LoginPage" onSubmit={this.handleSubmit}>
                     <div className="row">
                         <div className="form-header col-12">
