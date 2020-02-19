@@ -17,7 +17,7 @@ class SignupPage extends React.Component {
         return (
             <div>
                 <Header />
-                <div className='SignupPage'>
+                <div>
                     <SignupForm {...this.props} updateMessage={this.updateMessage} />
                     <p>{this.state.mesage}</p>
                 </div>

@@ -28,8 +28,14 @@ class App extends React.Component {
       <div className="App">
         <Switch>
           <Route exact path='/' render={
-              () => {
+              (props) => {
               return(
+                userService.getUser() ? 
+                <MainPage 
+                  {...props}  
+                  handleLogout={this.handleLogout}
+                />
+                :
                 <>
                   <header className="App-header">
                     <h1>Replay.It</h1>
@@ -41,19 +47,23 @@ class App extends React.Component {
                     Joaquim Grilo &copy;
                   </footer>
                 </>
+
               )}}/>
-          <Route exact path='/replay' render={props =>{
-            return( <MainPage {...props} />
+          <Route exact path='/login' render={({history}) =>{
+            return(
+              <LoginPage 
+                history={history} 
+                handleSignupOrLogin={this.handleSignupOrLogin} 
+              />
             )
           }}
           />
-          <Route exact path='/login' render={props =>{
-            return( <LoginPage {...props} />
-            )
-          }}
-          />
-          <Route exact path='/signup' render={props =>{
-            return( <SignupPage {...props} />
+          <Route exact path='/signup' render={({history}) =>{
+            return( 
+              <SignupPage 
+                history={history} 
+                handleSignupOrLogin={this.handleSignupOrLogin} 
+              />
             )
           }}
           />
